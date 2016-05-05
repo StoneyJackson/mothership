@@ -1,98 +1,87 @@
-# The Mothership
 
-[The name The Mothership is a placeholder until a better name is thought of.]
+# The Mothership Project
 
-The Mothership will be a website that supports a community of educators developing a curriculum of course materials for teaching open-source development using open-source tools and practices. The website will allow community members to find, request, share, organize, and improve open educational materials that are published in various forges. The website will help the community members stay motivated, connected, and engaged by raising its members awareness of members' activities.
+## 1. Overview
 
-## Users
+We want to support a community of educators create, share, find, and use educational materials. This community needs an infrastructure to support the following activities:
 
-The Mothership users are primarily faculty with masters and doctorates in computer science, mathematics, or other related disciplines. Their experience with open source tools and practices will vary from none to a lot. But most will be closer to the "none" end of the spectrum. They have very limited time, as their primary responsibility is to teach their courses, conduct research, and dispatch other faculty duties.
+- Coordination
+  - Direction
+  - What needs doing
+  - Who is doing what
+  - Deadlines
+  - Events
+- Communication
+  - Establish culture and norms
+  - Getting help
+  - Making decisions
+  - Discourse about direction
+  - Moderate
+  - All combinations of
+    - Synchronous and asynchronous
+    - Permanent and transient
+    - Public and private
+- Awareness
+  - Active, opt-in (or opt-out?) notification of news/events/changes
+- Management of materials
+  - Find
+  - Share
+  - Update
+  - Contribute
+  - Moderate
 
-Community members are motivated to develop course materials in an open-source way for the following reasons:
+This list may be incomplete. And each activity may not be disjoint. For example, awareness probably overlaps with everything.
 
-- To learn the tools and practices that they intend to teach.
-- To benefit from contributions to their work by community members.
-- To benefit from the collection of materials created by the community.
-- To feel good about contributing to a larger community.
+The Mothership Project aims to solve only one activity: management of materials. The other activities are likely best solved using other well-known, tried-and-true solutions: e.g., issue trackers for suggestions and discussion of direction, wikis for coordination, discussion boards and list serves for persistent asynchronous communication, IRC for transient and permanent synchronous communication, and so on.
 
-## User Goals Supported by The Mothership
+## 2. Assumptions
 
-- __Find__ educational resources to use in their classes.
-- __Request__ educational resources to use in their classes.
-- __Share__ educational resources for others to use in their classes.
-- __Improve__ educational resources shared by others.
-- __Update__ educational resources
-- __Organize__ the development of educational resources.
-- __Moderate__ registered resources to reduce spam and other untoward behavior.
-- __Remain aware__ of new and updated resources of interest.
-- __Communicate__ with other members of the community.
+The Mothership Project assumes that faculty will develop open course materials in the same way that open-source developers develop open-source projects. Specifically, faculty will
 
-## User Requirements
+- Use git to maintain their materials
+- Attach an appropriate open license to their materials
+- Publish their materials using a popular forge
+- Follow common workflows to contribute to other faculty's materials and receive contributions from other faculty.
 
-- __Find__
-  - Search that searches keywords, titles, and descriptions
-  - Results provide information to help evaluate the quality of a resources
-  - Returned resources and metadata is up-to-date
-  - Can sort results by various statistics (downloads, last updated date, posted date, stars, activity)
-  - Can list all resources
-  - Can find resources associated with pathways and their steps
-  - Can find what's missing (based on pathways) and most wanted
-  - Can list reported resources/pathways/etc.
-  - Can list quarantined resources/pathways/etc.
-- __Request__
-  - Can request new materials
-  - Can vote up requests
-- __Share__
-  - Can share resources by submitting a URL to publicly hosted repository and providing some basic information about the resource
-- __Improve__
-  - Can provide feedback on resources (stars, comments, up/down votes)
-- __Update__
-  - Can update resources that you have registered (keywords, url, title, etc)
-- __Organize__
-  - Can manage pathways and their steps
-  - Steps provide keywords that can be referenced by resources
-- __Moderate__
-  - Can report/pull/delete inappropriate resources/pathways/etc.
-- __Remain Aware__
-  - Can register for changes on particular resources.
-  - Can register to be notified when new resources are registered for particular keywords.
-  - Can register to be notified when any new resources are registered.
-  - Can be notified ...
-- __Communicate__
-  - Support public asynchronous communication.
-  - Support private asynchronous communication.
-  - Support public synchronous communication.
-  - Support private synchronous communication.
+Normally this would probably be an unrealistic assumption. It still might be. But the community of educators that The Mothership Project is intended to serve is dedicated to teaching students how to contribute to humanitarian free and open source projects. As such, these faculty themselves need to be (or become) familiar with the tools and practices that humanitarian free and open source projects use. What better way than to use the open-source way when developing educational materials to teach the open-source way.
 
-## Features
+## 3. Requirements
 
-### Core Features
+### 3.1 Find materials
 
-If we don't have these, we have nothing.
+The primary goal of The Mothership is to allow faculty to find repositories containing materials they are interested in. To that end, The Mothership should allow faculty to answer the following questions:
 
-- User accounts
-- Post repository URLs with title, keywords, and license
-- Search repositories by title, keywords, and/or license
+- What materials are available for class X?
+- What materials are available for topic X?
+- What material has the most/least downloads?
+- Which material has the most/least contributors?
+- Which material has most/least recently been updated?
+- Which material has the most/least commits in the last T units of time?
+- Which material was most/least recently posted?
+- Who maintains this material?
+- Where is the repository for this material?
+- How is this material licensed?
 
-### Crawler Feature
+### 3.2 Share materials
 
-- Verifies URLs to repositories; invalid repositories are marked invalid
-- Collects and updates metadata about repositories
-- Metadata examples: number of downloads, developers, contributors, release number, release date, last updated date, average commits per unit time, etc.
-- Repositories now display metadata
-- List invalid resources
-- Searches can be sorted by metadata
+Sharing work consists of the following:
 
-### Moderate Feature
+- Faculty will maintain their materials git repositories.
+- Faculty will publicly publish their materials in a forge (e.g., GitHub).
+- Faculty will attach an appropriate open license to their work.
+- Faculty will register their repositories with The Mothership.
 
-- Allow users to report repositories
-- Automatically pulls a repository with N or more reports and notifies admin.
-- List reported repositories
-- List pulled repositories
+### 3.3 Update materials and metadata
 
-### Notification Feature
+- Faculty update their repositories as normal, outside of The Mothership.
+- The Mothership will automatically update statistics about each repository.
+- Faculty may update metadata they provided when they registered their repository.
 
-- Register for notifications for
-  - Changes to a particular repository
-  - New repositories
-  - New repositories that match keywords
+### 3.4 Contribute to materials by others
+
+- Faculty may contribute to other faculty's repositories using git and forges outside of The Mothership.
+
+### 3.5 Moderate posted materials
+
+- Faculty may report registrations that are off-topic, inappropriate, spam, does not meet community guidelines, etc.
+- After M such reports, the registration removed from standard searches and an administrator is notified.
