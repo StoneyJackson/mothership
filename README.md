@@ -3,7 +3,7 @@
 
 ## 1. Overview
 
-We want to support a community of educators create, share, find, and use educational materials. This community needs an infrastructure to support the following activities:
+We want to support a community of educators who want to create, share, find, and use open educational materials. This community needs an infrastructure to support the following activities:
 
 - Coordination
   - Direction
