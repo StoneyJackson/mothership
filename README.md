@@ -66,16 +66,21 @@ The primary goal of The Mothership is to allow faculty to find repositories cont
 
 Sharing work consists of the following:
 
-- Faculty will maintain their materials git repositories.
+- Faculty will maintain their materials and metadata in git repositories.
 - Faculty will publicly publish their materials in a forge (e.g., GitHub).
 - Faculty will attach an appropriate open license to their work.
 - Faculty will register their repositories with The Mothership.
+- Metadata
+  - Should be useful to the maintainer as well as community
+  - Mothership should provide instructions on how to include metadata
+  - Mothership should incentivize inclusion of metadata (e.g., badges, stars, searching benifits, etc.)
+  - Mothership should be minimally restrictive about what metadata must be included
+  - Mothership should handle malformed metadata safely (e.g., prevent injections) and gracefully "fail"
 
 ### 3.3 Update materials and metadata
 
-- Faculty update their repositories as normal, outside of The Mothership.
-- The Mothership will automatically update statistics about each repository.
-- Faculty may update metadata they provided when they registered their repository.
+- Maintainers update the contents of their repositories, which includes metadata, and does not update The Mothership directly.
+- The Mothership will automatically update statistics and metadata about each repository.
 
 ### 3.4 Contribute to materials by others
 
