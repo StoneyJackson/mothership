@@ -96,6 +96,12 @@ Sharing work consists of the following:
 
 ### 3.2 Non-functional Requirements
 
-#### 3.2.1 Open Source
+#### 3.2.1 FOSS
 
 The Mothership and the technologies it depends on must be FOSS.
+
+#### 3.2.2 The Open-Source Way
+
+As much as possible, the Mothership must support the open-source way/
+- https://opensource.com/open-source-way
+- http://www.theopensourceway.org/
