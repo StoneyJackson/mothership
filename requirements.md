@@ -105,3 +105,7 @@ The Mothership and the technologies it depends on must be FOSS.
 As much as possible, the Mothership must support the open-source way/
 - https://opensource.com/open-source-way
 - http://www.theopensourceway.org/
+
+#### 3.2.3 Common Technology
+
+Must use popular, common, well-supported technology.
