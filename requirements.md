@@ -46,7 +46,9 @@ Normally this would probably be an unrealistic assumption. It still might be. Bu
 
 ## 3. Requirements
 
-### 3.1 Find materials
+### 3.1 Functional Requirements
+
+#### 3.1.1 Find materials
 
 The primary goal of The Mothership is to allow faculty to find repositories containing materials they are interested in. To that end, The Mothership should allow faculty to answer the following questions:
 
@@ -61,7 +63,9 @@ The primary goal of The Mothership is to allow faculty to find repositories cont
 - Where is the repository for this material?
 - How is this material licensed?
 
-### 3.2 Share materials
+Priority: this is initially low priority since initial volume of submissions is expected to be low. As submissions increase, this will become increasingly important.
+
+#### 3.1.2 Share materials
 
 Sharing work consists of the following:
 
@@ -76,16 +80,22 @@ Sharing work consists of the following:
   - Mothership should be minimally restrictive about what metadata must be included
   - Mothership should handle malformed metadata safely (e.g., prevent injections) and gracefully "fail"
 
-### 3.3 Update materials and metadata
+#### 3.1.3 Update materials and metadata
 
 - Maintainers update the contents of their repositories, which includes metadata, and does not update The Mothership directly.
 - The Mothership will automatically update statistics and metadata about each repository.
 
-### 3.4 Contribute to materials by others
+#### 3.1.4 Contribute to materials by others
 
 - Faculty may contribute to other faculty's repositories using git and forges outside of The Mothership.
 
-### 3.5 Moderate posted materials
+#### 3.1.5 Moderate posted materials
 
 - Faculty may report registrations that are off-topic, inappropriate, spam, does not meet community guidelines, etc.
 - After M such reports, the registration removed from standard searches and an administrator is notified.
+
+### 3.2 Non-functional Requirements
+
+#### 3.2.1 Open Source
+
+The Mothership and the technologies it depends on must be FOSS.
