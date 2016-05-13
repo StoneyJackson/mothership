@@ -70,7 +70,7 @@ Priority: this is initially low priority since initial volume of submissions is 
 Sharing work consists of the following:
 
 - Faculty will maintain their materials and metadata in git repositories.
-- Faculty will publicly publish their materials in a forge (e.g., GitHub).
+- Faculty will publicly publish their materials in a forge (e.g., GitHub or GitLab).
 - Faculty will attach an appropriate open license to their work.
 - Faculty will register their repositories with The Mothership.
 - Metadata
