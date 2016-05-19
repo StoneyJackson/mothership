@@ -1,0 +1,41 @@
+Example,,Technologies used,,,Purposes,,Open Source?
+Ensemble,,,,,,,No
+,,,,,,,
+CSPOGIL,,,,,,,No
+,,,,,,,
+AtmosphereJS,,node.js ,,,Package management,,Yes
+,,,,,,,
+PyPI,,,,,package management,,Yes
+,,,,,,,
+Drupal,,,,,content managemen,,Yes
+,,,,,,,
+OpenCMS,,"Java, MySQL, Oracle",,,CMS,,Yes
+,,,,,,,
+,,,,,,,
+django CMS,,"Python, Django",,,CMS,,Yes
+,,,,,,,
+,,,,,,,
+StackExchange,,,,,Community moderation,,No
+,,,,,,,
+,,,,,,,
+Mezzanine,,"Python, Django",,,Content management platform,,Yes
+,,,,,,,
+Accrisoft freedom,,"Linux, Apache HTTP, MySQL, PHP",,,content management system,,No
+,,,,,,,
+Gitlab,,Git,,,Repository management,,Yes
+,,,,,,,
+OpenACS,,"Linux/Windows, AOLserver, openACS, PostgreSQL, Tcl",,,"CMS, issue tracker, workflow",,No?
+,,,,,,,
+Apache Maven,,,,,"Repository management, project management",,No
+,,,,,,,
+Gogs,,Git,,,Git repository management,,No?
+,,,,,,,
+Daisy,,"Java, XML, Apache Cocoon",,,"knowledge bases, management of sites with major content",,Yes
+,,,,,,,
+Orchard Project,,"ASP.NET, SQL Server",,,community focused content management,,
+,,,,,,,
+Better CMS,,"C#, ASP.NET, SQL Server",,,publishing focused CMS,,Yes
+,,,,,,,
+eZ publish,,PHP MySQL,,,open source content management system,,Yes
+,,,,,,,
+MyGet,,"NPM, NuGet, Bower, VSIX",,,hosted package server,,no
