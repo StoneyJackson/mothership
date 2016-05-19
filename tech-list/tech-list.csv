@@ -1,11 +1,11 @@
 Example,,Technologies used,,,Purposes,,Open Source?
-Ensemble,,,,,,,No
+Ensemble,,"SWENET, ",,,digital library for computing educatoin,,No
 ,,,,,,,
-CSPOGIL,,,,,,,No
+CSPOGIL,,,,,"tikiwiki, classroom tracker, activity tracker",,No
 ,,,,,,,
-AtmosphereJS,,node.js ,,,Package management,,Yes
+AtmosphereJS,,npm ,,,Package management,,Yes
 ,,,,,,,
-PyPI,,,,,package management,,Yes
+PyPI,,python,,,package management,,Yes
 ,,,,,,,
 Drupal,,,,,content managemen,,Yes
 ,,,,,,,
