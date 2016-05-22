@@ -1,42 +1,47 @@
-Example,Link to resource ,Technologies used,,,Purposes,,License
-Ensemble,http://computingportal.org/,"SWENET, ",,,digital library for computing education,,Waiting on Email
-,,,,,,,
-CSPOGIL,http://cspogil.org/tiki-index.php,,,,"tikiwiki, classroom tracker, activity tracker",,Waiting on Email
-,,,,,,,
-AtmosphereJS,https://atmospherejs.com/,npm ,,,Package management,,No
-,,,,,,,
-PyPI,https://pypi.python.org/pypi,python,,,package management,,"Python License, "
-,,,,,,,https://docs.python.org/2/license.html
-Drupal,https://www.drupal.org/,PHP,,,content managemen,,GNU GPL v2 or later
-,,,,,,,https://www.drupal.org/about/licensing#q1
-OpenCMS,http://www.opencms.org/en/,"Java, MySQL, Oracle",,,CMS,,GNU LGPL 2.1 
-,,,,,,,http://www.opencms.org/en/download/licenses/index.html
-,,,,,,,
-django CMS,https://www.django-cms.org/en/,"Python, Django",,,CMS,,3 Clause BSD
-,,,,,,,https://github.com/divio/django-cms/blob/master/LICENSE
-,,,,,,,
-StackExchange,http://stackexchange.com/,,,,Community moderation,,No
-,,,,,,,
-,,,,,,,
-Mezzanine,http://mezzanine.jupo.org/,"Python, Django",,,Content management platform,,2 Clause BSD
-,,,,,,,https://github.com/stephenmcd/mezzanine/blob/master/LICENSE
-Accrisoft freedom,,"Linux, Apache HTTP, MySQL, PHP",,,content management system,,No
-,,,,,,,
-Gitlab Community Edition,https://about.gitlab.com/,Git,,,Repository management,,MIT License
-,,,,,,,https://github.com/gitlabhq/gitlabhq/blob/master/LICENSE
-OpenACS,http://openacs.org/,"Linux/Windows, AOLserver, openACS, PostgreSQL, Tcl",,,"CMS, issue tracker, workflow",,GNU GPL v2
-,,,,,,,http://openacs.org/about/licensing/
-Apache Maven,https://maven.apache.org/,,,,"Repository management, project management",,Apache License v2.0
-,,,,,,,https://www.apache.org/licenses/LICENSE-2.0
-Gogs,https://gogs.io/,Git,,,Git repository management,,MIT License
-,,,,,,,https://github.com/gogits/gogs/blob/master/LICENSE
-Daisy,http://www.daisycms.org/daisy/index.html,"Java, XML, Apache Cocoon",,,"knowledge bases, CMS",,Apache License v2.0
-,,,,,,,http://www.daisycms.org/daisy/about/license.html
-Orchard Project,http://www.orchardproject.net/,"ASP.NET, SQL Server",,,community focused content management,,New BSD License
-,,,,,,,http://www.orchardproject.net/mission
-Better CMS,http://www.bettercms.com/,"C#, ASP.NET, SQL Server",,,publishing focused CMS,,GNU LGPL 
-,,,,,,,http://www.bettercms.com/legal/gnu-lesser-general-public-license/
-eZ publish,http://ez.no/,PHP MySQL,,,open source content management system,,multiple? 
-,,,,,,,http://ez.no/About-our-Software/Licenses-and-agreements
-MyGet,https://myget.org/,"NPM, NuGet, Bower, VSIX",,,hosted package server,,CC 3.0 
-,,,,,,,http://creativecommons.org/licenses/by/3.0/
+Example,Link to resource ,Technologies used,Purposes,License
+Ensemble,http://computingportal.org/,"SWENET, ",digital library for computing education,Waiting on Email
+,,,,
+CSPOGIL,http://cspogil.org/tiki-index.php,,"tikiwiki, classroom tracker, activity tracker",Waiting on Email
+,,,,
+AtmosphereJS,https://atmospherejs.com/,npm ,Package management,No
+,,,,
+PyPI,https://pypi.python.org/pypi,python,package management,"Python License, "
+,,,,https://docs.python.org/2/license.html
+Drupal,https://www.drupal.org/,PHP,content managemen,GNU GPL v2 or later
+,,,,https://www.drupal.org/about/licensing#q1
+OpenCMS,http://www.opencms.org/en/,"Java, MySQL, Oracle",CMS,GNU LGPL 2.1 
+,,,,http://www.opencms.org/en/download/licenses/index.html
+,,,,
+django CMS,https://www.django-cms.org/en/,"Python, Django",CMS,3 Clause BSD
+,,,,https://github.com/divio/django-cms/blob/master/LICENSE
+,,,,
+StackExchange,http://stackexchange.com/,,Community moderation,No
+,,,,
+,,,,
+Mezzanine,http://mezzanine.jupo.org/,"Python, Django",Content management platform,2 Clause BSD
+,,,,https://github.com/stephenmcd/mezzanine/blob/master/LICENSE
+Accrisoft freedom,,"Linux, Apache HTTP, MySQL, PHP",content management system,No
+,,,,
+Gitlab Community Edition,https://about.gitlab.com/,Git,Repository management,MIT License
+,,,,https://github.com/gitlabhq/gitlabhq/blob/master/LICENSE
+OpenACS,http://openacs.org/,"Linux/Windows, AOLserver, openACS, PostgreSQL, Tcl","CMS, issue tracker, workflow",GNU GPL v2
+,,,,http://openacs.org/about/licensing/
+Apache Maven,https://maven.apache.org/,,"Repository management, project management",Apache License v2.0
+,,,,https://www.apache.org/licenses/LICENSE-2.0
+Gogs,https://gogs.io/,Git,Git repository management,MIT License
+,,,,https://github.com/gogits/gogs/blob/master/LICENSE
+Daisy,http://www.daisycms.org/daisy/index.html,"Java, XML, Apache Cocoon","knowledge bases, CMS",Apache License v2.0
+,,,,http://www.daisycms.org/daisy/about/license.html
+Orchard Project,http://www.orchardproject.net/,"ASP.NET, SQL Server",community focused content management,New BSD License
+,,,,http://www.orchardproject.net/mission
+Better CMS,http://www.bettercms.com/,"C#, ASP.NET, SQL Server",publishing focused CMS,GNU LGPL 
+,,,,http://www.bettercms.com/legal/gnu-lesser-general-public-license/
+eZ publish,http://ez.no/,PHP MySQL,open source content management system,multiple? 
+,,,,http://ez.no/About-our-Software/Licenses-and-agreements
+MyGet,https://myget.org/,"NPM, NuGet, Bower, VSIX",hosted package server,CC 3.0 
+,,,,http://creativecommons.org/licenses/by/3.0/
+Joomla,https://www.joomla.org/,PHP,CMS,GNU GPL v2
+,,,,https://docs.joomla.org/Joomla_Licenses
+LaunchPad,launchpad.net,"BazaarCMS, Python","bug tracking, code reviews, git repositories, hosting",GNU Affero GPL  v3
+,,,,https://dev.launchpad.net/LaunchpadLicense
+GNA,https://gna.org/,,"central point for development, distribution and maintenance of Libre Software (Free Software) projects.",
