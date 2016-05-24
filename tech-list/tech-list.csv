@@ -45,3 +45,7 @@ Joomla,https://www.joomla.org/,PHP,CMS,GNU GPL v2
 LaunchPad,launchpad.net,"BazaarCMS, Python","bug tracking, code reviews, git repositories, hosting",GNU Affero GPL  v3
 ,,,,https://dev.launchpad.net/LaunchpadLicense
 GNA,https://gna.org/,,"central point for development, distribution and maintenance of Libre Software (Free Software) projects.",
+,,,,
+Source Forge,sourceforge.net,,"find, create, and publish OSS",
+,,,,
+Atom.io,Atom.io,,package index,
