@@ -49,3 +49,6 @@ GNA,https://gna.org/,,"central point for development, distribution and maintenan
 Source Forge,sourceforge.net,,"find, create, and publish OSS",
 ,,,,
 Atom.io,Atom.io,,package index,
+,,,,
+Ruby Gems,rubygems.org,ruby,"hosting and indexing of ""gems"" ",MIT license
+,,,,https://github.com/rubygems/rubygems
