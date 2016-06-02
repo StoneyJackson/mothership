@@ -2,6 +2,10 @@
 
 ## 1. Overview
 
+We want to support a community of faculty who want to develop open educational materials (OEM) to teach free and open-source software development (FOSSD) using the tools, processes, and practices used in FOSSD.
+
+Why would faculty want to use FOSSD to create OEM that teaches FOSSD? First, it gives faculty who intend to teach FOSSD an opportunity to engage in FOSSD, thus helping them learn and practice FOSSD themselves. Second, by using FOSSD to develop OEM, faculty get a collection of maintained OEM that they can use and improve.
+
 We want to support a community of educators who want to create, share, find, and use open educational materials. This community needs an infrastructure to support the following activities:
 
 - Coordination
