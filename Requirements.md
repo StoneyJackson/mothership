@@ -76,7 +76,7 @@ Sharing work consists of the following:
 - Metadata
   - Should be useful to the maintainer as well as community
   - Mothership should provide instructions on how to include metadata
-  - Mothership should incentivize inclusion of metadata (e.g., badges, stars, searching benifits, etc.)
+  - Mothership should incentivize inclusion of metadata (e.g., badges, stars, searching benefits, etc.)
   - Mothership should be minimally restrictive about what metadata must be included
   - Mothership should handle malformed metadata safely (e.g., prevent injections) and gracefully "fail"
 
