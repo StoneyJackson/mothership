@@ -2,6 +2,7 @@
 
 Meeting notes: https://titanpad.com/Z2QCzRKBII
 
+- 6/14/2016 @ 7pm on Skype
 - 6/03/2016 @ 2pm on Skype
 - 6/01/2016 @ 7pm on Skype (Meeting missed. Stoney's fault.)
 - 5/25/2016 @ 7pm on Skype
