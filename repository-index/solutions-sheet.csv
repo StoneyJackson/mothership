@@ -1,20 +1,20 @@
-Solutions,Specific Solution,Can be self hosted?,Create Effort,Maintain Effort,User Effort,Needs Customization?,Moderated,Explained Setup,Find Repositories,Report a problem,Feature Request,Fix a problem,add to existing material,Maintain a fork w/customization,Publish,Metadata,auto update
-Forges,Index-Repository,No,XS,M,L,Yes,Human,"
+Solutions,Specific Solution,Is self hosted?,Create Effort,Maintain Effort,User Effort,Needs Customization?,Moderated,Explained Setup,E1,E2,E3,E4,E5,E6,E7,E8,E9,D1,D2,D3
+Forges,Index-Repository,No,XS,M,L,No,Human - continuous integration ,"
 Create a single index-repository to hold URLs to other repositories
-",,,,,,,,,
+",Hard,easy,easy,easy,easy,easy,easy,hard,medium,,,
 ,Group Fork,No,XS,M,M,No,Auto,"Each repository forked by foss2serve is in the index
-",,,,,,,,,
-,Group Repository,No,XS,M,S,Yes,Human,"repository owned by foss2serve, each author assigned as master",,,,,,,,,
-,Self-Hosted,Yes,XL,L,S,Yes,Human,"We host, and authors publish to our server, which serves as the index",,,,,,,,,
-Content Management Systems,,,,,,,,,,,,,,,,,
-,WordPress,Yes,XL,M,S,No,Human,,,,,,,,,,
-,Drupal,No,L,M,S,No,Community,,,,,,,,,,
-,Joomla,No,L,M,S,No,Human,,,,,,,,,,
-Wiki,,,,,,,,,,,,,,,,,
-,Tiki(Groups),No,L,M,S,No,Human,,,,,,,,,,
-,MediaWiki,Yes,XL,M,S,No,Community ,,,,,,,,,,
-,Wagn,Yes,XL,M,S,No,Community,,,,,,,,,,
-Close-but-not-quite,,,,,,,,,,,,,,,,,
-,RubyGems,Yes,XL,L,S,Yes,Auto,,,,,,,,,,
-,PyPI,Yes,XL,L,S,Yes,Human,,,,,,,,,,
-Build from Scratch,,Yes,XXL,XL,XS,Yes,Community,,,,,,,,,,
+",,,,,,,,,,,,
+,Group Repository,No,XS,M,S,Yes,Human,"repository owned by foss2serve, each author assigned as master",,,,,,,,,,,,
+,Self-Hosted,Yes,XL,L,S,Yes,Human,"We host, and authors publish to our server, which serves as the index",,,,,,,,,,,,
+Content Management Systems,,,,,,,,,,,,,,,,,,,,
+,WordPress,Yes,XL,M,S,No,Human,,,,,,,,,,,,,
+,Drupal,No,L,M,S,No,Community,,,,,,,,,,,,,
+,Joomla,No,L,M,S,No,Human,,,,,,,,,,,,,
+Wiki,,,,,,,,,,,,,,,,,,,,
+,Tiki(Groups),No,L,M,S,No,Human,,,,,,,,,,,,,
+,MediaWiki,Yes,XL,M,S,No,Community ,,,,,,,,,,,,,
+,Wagn,Yes,XL,M,S,No,Community,,,,,,,,,,,,,
+Close-but-not-quite,,,,,,,,,,,,,,,,,,,,
+,RubyGems,Yes,XL,L,S,Yes,Auto,,,,,,,,,,,,,
+,PyPI,Yes,XL,L,S,Yes,Human,,,,,,,,,,,,,
+Build from Scratch,,Yes,XXL,XL,XS,Yes,Community,,,,,,,,,,,,,
