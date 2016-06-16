@@ -1,7 +1,7 @@
 ## Stories
 
 __E1:__
-As an educator I want to find material that have activities that I can use for my classes so that I can save time preparing for classes and use materials better than what I can create on my own.
+As an educator I want to find repositories that have activities that I can use for my classes so that I can save time preparing for classes and use materials better than what I can create on my own.
 
 __E2:__
 As an educator I want to report a problem that I found while using materials so that they can be fixed before I use it again next time and so that I feel proud to be part of something bigger than myself.
