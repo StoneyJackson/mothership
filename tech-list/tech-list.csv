@@ -1,4 +1,6 @@
 Example,Link to resource ,Technologies used,Purposes,License
+OpenDSA,https://github.com/OpenDSA/OpenDSA,github,Develop materials for datastructures and algorithms course,MIT License
+,,,,
 Ensemble,http://computingportal.org/,"SWENET, ",digital library for computing education,Waiting on Email
 ,,,,
 CSPOGIL,http://cspogil.org/tiki-index.php,,"tikiwiki, classroom tracker, activity tracker",Waiting on Email
@@ -44,7 +46,7 @@ Joomla,https://www.joomla.org/,PHP,CMS,GNU GPL v2
 ,,,,https://docs.joomla.org/Joomla_Licenses
 LaunchPad,launchpad.net,"BazaarCMS, Python","bug tracking, code reviews, git repositories, hosting",GNU Affero GPL  v3
 ,,,,https://dev.launchpad.net/LaunchpadLicense
-GNA,https://gna.org/,,"central point for development, distribution and maintenance of Libre Software (Free Software) projects.",
+GNA,https://gna.org/,,"central point for development, distribution and maintenance ofÂ Libre Software (Free Software)Â projects.",
 ,,,,
 Source Forge,sourceforge.net,,"find, create, and publish OSS",
 ,,,,
