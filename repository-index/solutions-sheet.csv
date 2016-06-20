@@ -7,14 +7,14 @@ Create a single index-repository to hold URLs to other repositories
 ,Group Repository,No,XS,M,S,Yes,Human,"repository owned by foss2serve, each author assigned as master",Easy,Easy,Easy,Medium,Medium,Medium?,easy,easy,easy,medium,easy,hard
 ,Self-Hosted,Yes,XL,L,S,Yes,Human,"We host, and authors publish to our server, which serves as the index",Easy,Easy,Hard?,Medium,Medium,Medium,Easy,Easy,Hard?,Medium,Hard,Hard
 Content Management Systems,,,,,,,,,,,,,,,,,,,,
-,WordPress,Yes,XL,M,S,No,Human,,,,,,,,,,,,,
-,Drupal,No,L,M,S,No,Community,,,,,,,,,,,,,
-,Joomla,No,L,M,S,No,Human,,,,,,,,,,,,,
+,WordPress,Yes,XL,M,S,No,Human,,Easy,Easy,Easy,Easy,Easy,Medium,Medium,Medium,Medium,easy,easy,easy
+,Drupal,No,L,M,S,No,Community,,easy,easy,medium,medium,medium,medium,?,?,easy,easy,easy,medium
+,Joomla,No,L,M,S,No,Human,,easy,easy,easy,easy,easy,easy,?,?,easy,easy,easy,easy
 Wiki,,,,,,,,,,,,,,,,,,,,
-,Tiki(Groups),No,L,M,S,No,Human,,,,,,,,,,,,,
-,MediaWiki,Yes,XL,M,S,No,Community ,,,,,,,,,,,,,
+,Tiki(Groups),No,L,M,S,No,Human,,easy,easy,medIum,easy,easy,easy,easy,easy,easy,easy,easy,easy
+,MediaWiki,Yes,XL,M,S,No,Community ,,easy,easy,medium,easy,easy,easy,easy,easy,easy,easy,easy,hard
 ,Wagn,Yes,XL,M,S,No,Community,,,,,,,,,,,,,
 Close-but-not-quite,,,,,,,,,,,,,,,,,,,,
-,RubyGems,Yes,XL,L,S,Yes,Auto,,,,,,,,,,,,,
-,PyPI,Yes,XL,L,S,Yes,Human,,,,,,,,,,,,,
-Build from Scratch,,Yes,XXL,XL,XS,Yes,Community,,,,,,,,,,,,,
+,RubyGems,Yes,XL,L,S,Yes,Auto,,easy,hard,hard,medium,medium,medium,?,?,easy,easy,easy,hard
+,PyPI,Yes,XL,L,S,Yes,Human,,easy,medium,hard,hard,hard,hard,medium,medium,easy,easy`,easy,medium
+Build from Scratch,,Yes,XXL,XL,XS,Yes,Community,,Easy,Easy,Easy,Easy,Easy,Easy,Easy,Easy,Easy,Easy,Easy,Easy
