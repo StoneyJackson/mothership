@@ -1,4 +1,6 @@
 Example,Link to resource ,Technologies used,Purposes,License
+OAI-PMH,https://www.openarchives.org/pmh/,,Standard for metadata harvesting,CC BY-SA
+,,,,
 OpenDSA,https://github.com/OpenDSA/OpenDSA,github,Develop materials for datastructures and algorithms course,MIT License
 ,,,,
 Ensemble,http://computingportal.org/,"SWENET, ",digital library for computing education,Waiting on Email
@@ -11,7 +13,7 @@ PyPI,https://pypi.python.org/pypi,python,package management,"Python License, "
 ,,,,https://docs.python.org/2/license.html
 Drupal,https://www.drupal.org/,PHP,content managemen,GNU GPL v2 or later
 ,,,,https://www.drupal.org/about/licensing#q1
-OpenCMS,http://www.opencms.org/en/,"Java, MySQL, Oracle",CMS,GNU LGPL 2.1 
+OpenCMS,http://www.opencms.org/en/,"Java, MySQL, Oracle",CMS,GNU LGPL 2.1
 ,,,,http://www.opencms.org/en/download/licenses/index.html
 ,,,,
 django CMS,https://www.django-cms.org/en/,"Python, Django",CMS,3 Clause BSD
@@ -36,11 +38,11 @@ Daisy,http://www.daisycms.org/daisy/index.html,"Java, XML, Apache Cocoon","knowl
 ,,,,http://www.daisycms.org/daisy/about/license.html
 Orchard Project,http://www.orchardproject.net/,"ASP.NET, SQL Server",community focused content management,New BSD License
 ,,,,http://www.orchardproject.net/mission
-Better CMS,http://www.bettercms.com/,"C#, ASP.NET, SQL Server",publishing focused CMS,GNU LGPL 
+Better CMS,http://www.bettercms.com/,"C#, ASP.NET, SQL Server",publishing focused CMS,GNU LGPL
 ,,,,http://www.bettercms.com/legal/gnu-lesser-general-public-license/
-eZ publish,http://ez.no/,PHP MySQL,open source content management system,multiple? 
+eZ publish,http://ez.no/,PHP MySQL,open source content management system,multiple?
 ,,,,http://ez.no/About-our-Software/Licenses-and-agreements
-MyGet,https://myget.org/,"NPM, NuGet, Bower, VSIX",hosted package server,CC 3.0 
+MyGet,https://myget.org/,"NPM, NuGet, Bower, VSIX",hosted package server,CC 3.0
 ,,,,http://creativecommons.org/licenses/by/3.0/
 Joomla,https://www.joomla.org/,PHP,CMS,GNU GPL v2
 ,,,,https://docs.joomla.org/Joomla_Licenses
