@@ -14,7 +14,7 @@ requestUrl = ("https://api.github.com/repos/%s/%s/contents/urls.md/" % (user, re
 
 request = requests.get(requestUrl, auth = (userNamePrompt, yourPassWord))
 if request.status_code == 200: #successful request because file exists
-    r2 = requests.get("https://raw.github.com/foss2serve/corral/master/urls.md")
+    r2 = requests.get("https://raw.github.com/%s/%s/master/urls.md" % (user, repoName))
     urls = str(r2.content).strip('-').split(' ')
     urls = urls[1:]  #skip the first line its irrelevant and something github includes
     outJson = {}
