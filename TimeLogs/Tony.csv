@@ -25,7 +25,3 @@ Date,Start,Stop,What,Next,Blockers
 24-June, 6:00, 9:00, read up on github api did some tutorials made a json retriever.,,
 27-June, 7:00, 12:30, draft of meta data extractor - needs some more work,,
 28-June, 7:00, 8:15, 7th meeting, working on harvester next (produce urls.json), no blockers
-5-July, 9:00, 11:00, worked on config files and fixing my fork, working on urls.json program next, no blockers
-21-July, 10:00, 12:30, created a prototype python script to check for a urls.md and if it exists pull it and create a json, fixing json creator next and determine how to request with etags, no blockers
-23-July, 12:00, 1:30, fixed the json creator and script, having an issue stripping the n from the urls need to find a workaround for that, working on fixing the formatting of the json and the metadata writer
-24-July, 1:00, 6:00, updated the urls.json creator and figured out pagination for metadata extractor (can create meta.json), figuring out ETag optimization is my only blocker, working on the full harvester and possibly the html generator next
