@@ -13,78 +13,34 @@ def getNumPages(url, auth):
         numPages = 0
     return numPages
 
-def getWatchers(user, repoName, auth):
-    watchUrl = ("https://api.github.com/repos/%s/%s/subscribers"% (user,repoName))
-    numPages = getNumPages(watchUrl, auth)
-    link = watchUrl
-    i = 1
-    runtime = 0
-    total = 0
-    names = []
-    if numPages == 0: #do a non paginated request
-        watchUrl =  "https://api.github.com/repos/%s/%s/subscribers"% (user,repoName)
-        watchersRequest = requests.get(watchUrl, auth = auth)
-        watchers = watchersRequest.json()
-        for name in watchers:
-            if name['login'] not in names:
-                names+=[name['login']]
-    else:
-        for page in range(numPages+1):
-            watchUrl =  "https://api.github.com/repos/%s/%s/subscribers?page=%i"% (user,repoName,page)
-            watchersRequest = requests.get(watchUrl, auth = auth)
-            watchers = watchersRequest.json()
-            for name in watchers:
-                if name['login'] not in names:
-                    names+=[name['login']]
-
-    return len(names)
-
-
-def getCommits(user, repoName, auth):
-    commUrl = ("https://api.github.com/repos/%s/%s/commits"% (user,repoName))
-    numPages = getNumPages(commUrl, auth)
-    commitsList = []
-    print(len(commitsList))
-    if numPages == 0: #do a non paginated request
-        commUrl =  "https://api.github.com/repos/%s/%s/commits"% (user,repoName)
-        commitsRequest = requests.get(commUrl, auth = auth)
-        commits = commitsRequest.json()
-        for commit in commits:
-            commitsList+=[commit]
-    else:
-        for page in range(numPages+1):
-            watchUrl =  "https://api.github.com/repos/%s/%s/commits?page=%i"% (user,repoName,page)
-            commitsRequest = requests.get(commUrl, auth = auth)
-            commits = commitsRequest.json()
-            for commit in commits:
-                commitsList+=[commit]
-
-
-    return len(commitsList)
-
 #need to use a different URL
-def getContributors(user, repoName, auth):
-    watchUrl = ("https://api.github.com/repos/%s/%s/contributors"% (user,repoName))
-    numPages = getNumPages(watchUrl, auth)
-    link = watchUrl
-    names = []
+def getData(user, repoName, auth, dataType):
+    requestUrl = ("https://api.github.com/repos/"+user+"/"+repoName+"/"+dataType)
+    numPages = getNumPages(requestUrl, auth)
+    dataList = []
     if numPages == 0: #do a non paginated request
-        watchUrl =  "https://api.github.com/repos/%s/%s/contributors"% (user,repoName)
-        watchersRequest = requests.get(watchUrl, auth = auth)
-        watchers = watchersRequest.json()
-        for name in watchers:
-            if name['login'] not in names:
-                names+=[name['login']]
+        requestUrl =  "https://api.github.com/repos/"+user+"/"+repoName+"/"+dataType
+        dataRequest = requests.get(requestUrl, auth = auth)
+        dataJson = dataRequest.json()
+        for data in dataJson:
+            if dataType != 'commits':
+                if data['login'] not in dataList: #contributors and watchers have this
+                    dataList+=[data['login']]
+            else:
+                dataList += [data]
     else:
         for page in range(numPages+1):
-            watchUrl =  "https://api.github.com/repos/%s/%s/contributors?page=%i"% (user,repoName,page)
-            watchersRequest = requests.get(watchUrl, auth = auth)
-            watchers = watchersRequest.json()
-            for name in watchers:
-                if name['login'] not in names:
-                    names+=[name['login']]
+            watchUrl =  "https://api.github.com/repos/"+user+"/"+repoName+"/"+dataType+"?page="+ str(page)
+            dataRequest = requests.get(requestUrl, auth = auth)
+            dataJson = dataRequest.json()
+            for data in dataJson:
+                if dataType != 'commits':
+                    if data['login'] not in dataList:
+                        dataList+=[data['login']]
+                else:
+                    dataList += [data]
 
-    return len(names)
+    return len(dataList)
 def getMetadata(user, repoName, auth):
     #this will get the title, description, watchers, stars, subscribers?, forks
     metadataUrl = ("https://api.github.com/repos/%s/%s" % (user, repoName))
@@ -95,6 +51,7 @@ def getMetadata(user, repoName, auth):
     stars = metadataJson["stargazers_count"]
     forks = metadataJson["forks_count"]
     metaEtag = metadataRequest.headers['etag'].strip('\"')
+    print(type(metaEtag))
     metadata = {}
 
     metadata["Title"] = title
@@ -142,11 +99,11 @@ def main():
     partsOfUrl = inputUrl.split('/')
     user = partsOfUrl[3]
     repoName = partsOfUrl[4]
-    numWatchers = getWatchers(user, repoName, auth)
-    numContributors = getContributors(user, repoName, auth)
+    numWatchers = getData(user, repoName, auth, 'subscribers')
+    numContributors = getData(user, repoName, auth, 'contributors')
     metadataDict, etag = getMetadata(user,repoName,auth)
     lastCommitDict = getLastCommit(user, repoName, auth)
-    numCommits = getCommits(user, repoName, auth)
+    numCommits = getData(user, repoName, auth, 'commits')
     repoDict = parseDict(inputUrl, metadataDict, numContributors, numCommits, lastCommitDict, numWatchers, etag)
     writeJson(repoDict)
 

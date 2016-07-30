@@ -18,6 +18,7 @@ def getUrls(requestUrl, user, repoName, auth, urlsJson):
                 if urlsJson['ETag'] != None: #no etag? if possible need to check
                     if urlsJson['ETag'] != r2.headers['ETag'].strip('\"'):
                         etag = (r2.headers['ETag'].strip('\"'))
+                        print(type(etag))
                         urls = str(r2.content).strip('-').split(' ')
                         urls = urls[1:]  #skip the first line its irrelevant and something github includes
                         for url in urls:
@@ -35,11 +36,12 @@ def getUrls(requestUrl, user, repoName, auth, urlsJson):
                         sys.exit()
             else:
                 etag = (r2.headers['ETag'].strip('\"'))
-                urls = str(r2.content).strip('-').split(' ')
-                urls = urls[1:]  #skip the first line its irrelevant and something github includes
-                for url in urls:
-                    url = url.strip('\n')
-                    url = url.rstrip().rstrip()
+                urls = (r2.content.decode('utf-8').split('\n'))
+
+                urlscopy = urls[:len(urls)-1]  #skip the last line its
+                print(urlscopy[1])
+                for url in urlscopy:
+                    url = url.strip('-')
 
                     urlList += [url]
                     urlSplit = url.split('/')
@@ -57,8 +59,7 @@ def getUrls(requestUrl, user, repoName, auth, urlsJson):
 def parseDict(urlList, repoList, etag):
     urlsDict = {}
     urlsDict['ETag'] =  etag
-    print(etag)
-    print(urlsDict['ETag'])
+
     urlsDict['URLs'] = urlList
     #for repo in repoList:
         #repoDict[repo] = urlList[repoList.index(repo)]
