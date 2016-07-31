@@ -30,3 +30,4 @@ Date,Start,Stop,What,Next,Blockers
 23-July, 12:00, 1:30, fixed the json creator and script, having an issue stripping the n from the urls need to find a workaround for that, working on fixing the formatting of the json and the metadata writer
 23-July, 1:00, 6:00, updated the urls.json creator and figured out pagination for metadata extractor (can create meta.json), figuring out ETag optimization is my only blocker, working on the full harvester and possibly the html generator next
 26-JUly, 8:00, 9:00, 8th meeting, working on request cacher next, no blockers
+30-July, 2:00, 7:00, fixed redundant methods in metadata extracator and fixed urls check bytestring issue, working on ETag optimization and dumping json to the subdirectories next, figuring out how to pass arguments from urls json to the main function of metadata_extractor
