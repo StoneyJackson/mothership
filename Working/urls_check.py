@@ -39,7 +39,7 @@ def getUrls(requestUrl, user, repoName, auth, urlsJson):
                 urls = (r2.content.decode('utf-8').split('\n'))
 
                 urlscopy = urls[:len(urls)-1]  #skip the last line its
-                print(urlscopy[1])
+                print(urlscopy[])
                 for url in urlscopy:
                     url = url.strip('-')
 
