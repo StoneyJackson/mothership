@@ -32,4 +32,4 @@ Date,Start,Stop,What,Next,Blockers
 26-JUly, 8:00, 9:00, 8th meeting, working on request cacher next, no blockers
 30-July, 2:00, 7:00, fixed redundant methods in metadata extracator and fixed urls check bytestring issue, working on ETag optimization and dumping json to the subdirectories next, figuring out how to pass arguments from urls json to the main function of metadata_extractor
 31-July, 8:00, 12:30, Harvester will not perform an ETag check prior to creating directories and meta.json, needs some optimization and work on generating html, no blockers
-2-July, 7:00, 8:30. 9th meeting, working on documentation for harvester next, no blockers
+2-July, 7:00, 8:30, 9th meeting, working on documentation for harvester next, no blockers
