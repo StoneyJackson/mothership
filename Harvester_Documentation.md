@@ -11,13 +11,13 @@ by Tony Tran
 as well as an OAuth text file that holds your OAuth token.
 
 config.py
-'''
+```
 DATA_ROOT = 'path/to/where/we/should/store/data'
 GITHUB_ROOT = 'https://api.github.com'
 GITHUB_USERNAME = 'Your Username'
 GITHUB_PASSWORD = 'Your Password'
 
-'''
+```
 
 Now to run the harvester you'll need the following dependencies
 
