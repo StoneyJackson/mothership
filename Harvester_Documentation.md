@@ -21,8 +21,8 @@ GITHUB_PASSWORD = 'Your Password'
 
 Now to run the harvester you'll need the following dependencies
 
-os,json,base64,requests,sys,glob, and makeHTML
-which can be found [here](http://www.hoboes.com/Mimsy/hacks/object-oriented-html/):
+os,json,base64,requests,sys,glob all of which are part of python standard library.
+and makeHTML which can be found [here](http://www.hoboes.com/Mimsy/hacks/object-oriented-html/):
 
 these should all be available natively, harvester was built on Python 3.x
 so I would recommend having that version.
