@@ -2,6 +2,7 @@
 
 Meeting notes: https://titanpad.com/Z2QCzRKBII
 
+- 8/09/2016 @ 7pm on Skype
 - 8/02/2016 @ 7pm on Skype
 - 7/26/2016 @ 7pm on Skype
 - 6/28/2016 @ 7pm on Skype
