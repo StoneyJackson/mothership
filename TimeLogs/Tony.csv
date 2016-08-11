@@ -36,3 +36,4 @@ Date,Start,Stop,What,Next,Blockers
 4-August, 10:00, 12:00, researched some html generating python libraries and made a WIP harvester documentation, finalize documentation and generate html, no blockers
 5-August, 10:00, 12:30, add python html generator scrpt and fixed formatting on harvester documentation, add css maybe bootstrap the html, no blockers
 9-August, 7:00, 8:20, 10th meeting, working on refactoring code and formatting readme next, no blockers
+11-August, 9:00, 12:00, cleaned up formatting and setup argument parsing from terminal, working on refactoring next, no blockers
