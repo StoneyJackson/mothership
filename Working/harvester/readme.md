@@ -30,11 +30,16 @@ GITHUB_PASSWORD = 'Your Password'
 ##Usage
 1. run urls_check.py
 
-it will prompt for a url, this url should point to a repo containing a urls.md file
+
+it requires a url to be passed, repo must contain urls.md
+also takes an optional 'OAuth' argument to choose to use an OAuth file to authenticate
+(note if you've set up MFA on your github, I recommend setting up OAuth) 
 I ran this with https://github.com/foss2serve/corral
 
 
 2. run harvester.py
+this will also require a url argument
+and OAuth or standard authentication are avialable options
 it will generate a folder for each url in urls.md and each folder will contain a meta.json
 
 3. run generateHTML.py - for now it will generate very basic html no css(To be added later)
