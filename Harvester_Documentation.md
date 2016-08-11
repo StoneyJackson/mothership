@@ -3,13 +3,21 @@
 
 by Tony Tran
 
+##About Harvester
+Harvester is a proof of concept project that visits Github repositories, grabs the metadata and generates a webpage for each repo.
+##Dependencies
+To use the harvester you need: Python 3.x,
+and A github account
 
+In addition you'll also need the requests module found [here] (http://docs.python-requests.org/en/master/)
+and the makeHTML module which can be found [here](http://www.hoboes.com/Mimsy/hacks/object-oriented-html/)
+
+##Setup
 1. To use the harvester you must have a github account to authenticate
 2. Harvester supports authentication by OAuth or a standard username and password
 3. With that in mind, you should have a folder named config-location located on the root of the repo.
 4. Your config-location should have a config.py that contains your authentication information
 as well as an OAuth text file that holds your OAuth token.
-
 config.py
 ```
 DATA_ROOT = 'path/to/where/we/should/store/data'
@@ -19,19 +27,17 @@ GITHUB_PASSWORD = 'Your Password'
 
 ```
 
-Now to run the harvester you'll need the following dependencies
-
-os,json,base64,requests,sys,glob all of which are part of python standard library.
-and makeHTML which can be found [here](http://www.hoboes.com/Mimsy/hacks/object-oriented-html/):
-
-these should all be available natively, harvester was built on Python 3.x
-so I would recommend having that version.
-
-5. run urls_check.py
+##Usage
+1. run urls_check.py
 
 it will prompt for a url, this url should point to a repo containing a urls.md file
 I ran this with https://github.com/foss2serve/corral
 
-6. run harvester.py
+
+2. run harvester.py
 it will generate a folder for each url in urls.md and each folder will contain a meta.json
-7. run generateHTML.py - for now it will generate very basic html no css(To be added later)
+
+3. run generateHTML.py - for now it will generate very basic html no css(To be added later)
+
+
+
