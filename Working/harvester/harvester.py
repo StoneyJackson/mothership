@@ -16,6 +16,7 @@ def createDir(url):
         encodedUrl = (str(encodedUrl).strip('b'))
     else:
         print('whoops')
+
     return encodedUrl
 
 def checkDir(encodedUrl):

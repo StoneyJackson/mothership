@@ -1,5 +1,0 @@
-DATA_ROOT = "./config.txt"
-GITHUB_ROOT =  "https://api.github.com"
-GITHUB_USERNAME = "Your Username"
-GITHUB_PASSWORD = "Your Password"
-GITHUB_OPENAUTH = "./oauth.txt"
