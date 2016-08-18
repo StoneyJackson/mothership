@@ -10,3 +10,5 @@ Design - Design documents
 Working - A place for works in progress
 
 
+Copyright 2016, Stoney Jackson SOME RIGHTS RESERVED
+License: GPLv3
