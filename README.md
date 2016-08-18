@@ -9,6 +9,7 @@ Analysis - Analysis documents
 Design - Design documents
 Working - A place for works in progress
 
+## Copyright and License
 
-Copyright 2016, Stoney Jackson SOME RIGHTS RESERVED
-License: GPLv3
+* Copyright 2016, Stoney Jackson SOME RIGHTS RESERVED
+* License: GPLv3
