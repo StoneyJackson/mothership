@@ -37,3 +37,5 @@ Date,Start,Stop,What,Next,Blockers
 5-August, 10:00, 12:30, add python html generator scrpt and fixed formatting on harvester documentation, add css maybe bootstrap the html, no blockers
 9-August, 7:00, 8:20, 10th meeting, working on refactoring code and formatting readme next, no blockers
 11-August, 9:00, 12:00, cleaned up formatting and setup argument parsing from terminal, working on refactoring next, no blockers
+18-August, 10:00, 1:00, fixed styling had a bug with cmd line args, working on css and readme next, no blockers 
+18-August, 1:00, 1:45. 11th and official final meeting for harvester project, finishing touches next, no blockers
