@@ -3,164 +3,161 @@ import json
 import sys
 from argparse import ArgumentParser
 
-parser = ArgumentParser()
-parser.add_argument('url', help = 'the url to the git repo containing a urls.md')
-parser.add_argument('type', help = 'type OAuth to use OAuth authentication (ensure you have an OAuth.txt file in your config folder first)', required = False)
-args = parser.parse_args()
 
 
 #need to use a different URL
-def getNumPages(url, auth):
+def get_num_pages(url, auth):
 
-    link = url
-    request = requests.get(link, auth = auth)
+    request = requests.get(url, auth = auth)
 
     try:
-        lastPage = request.headers['Link'].split(';')[1].split('?')[1].split('=')[1]
-        numPages = int(lastPage.strip('>'))
+        last_page = request.headers['Link'].split(';')[1].split('?')[1].split('=')[1]
+        num_pages = int(last_page.strip('>'))
     except KeyError:  #some of these requests wont have pagination because they're only one page
-        numPages = 0
-    return numPages
+        num_pages = 0
+    return num_pages
 
 #need to use a different URL
-def getData(user, repoName, auth, dataType):
-    requestUrl = ("https://api.github.com/repos/"+user+"/"+repoName+"/"+dataType)
-    numPages = getNumPages(requestUrl, auth)
-    dataList = []
-    if numPages == 0: #do a non paginated request
-        requestUrl =  "https://api.github.com/repos/"+user+"/"+repoName+"/"+dataType
-        dataRequest = requests.get(requestUrl, auth = auth)
-        dataJson = dataRequest.json()
-        for data in dataJson:
-            if dataType != 'commits':
-                if data['login'] not in dataList: #contributors and watchers have this
-                    dataList+=[data['login']]
+def get_data(user, repo_name, auth, data_type):
+    repo_url = ("https://api.github.com/repos/"+user+"/"+repo_name+"/"+data_type)
+    num_pages = get_num_pages(repo_url, auth)
+    data_list = []
+    if num_pages == 0: #do a non paginated request
+        repo_url =  "https://api.github.com/repos/"+user+"/"+repo_name+"/"+data_type
+        data_request = requests.get(repo_url, auth = auth)
+        data_json = data_request.json()
+        for data in data_json:
+            if data_type != 'commits':
+                if data['login'] not in data_list: #contributors and watchers have this
+                    data_list+=[data['login']]
             else:
-                dataList += [data]
+                data_list += [data]
     else:
-        for page in range(numPages+1):
-            watchUrl =  "https://api.github.com/repos/"+user+"/"+repoName+"/"+dataType+"?page="+ str(page)
-            dataRequest = requests.get(requestUrl, auth = auth)
-            dataJson = dataRequest.json()
-            for data in dataJson:
-                if dataType != 'commits':
-                    if data['login'] not in dataList:
-                        dataList+=[data['login']]
+        for page in range(num_pages+1):
+            repo_url =  "https://api.github.com/repos/"+user+"/"+repo_name+"/"+data_type+"?page="+ str(page)
+            data_request = requests.get(repo_url, auth = auth)
+            data_json = data_request.json()
+            for data in data_json:
+                if data_type != 'commits':
+                    if data['login'] not in data_list:
+                        data_list+=[data['login']]
                 else:
-                    dataList += [data]
+                    data_list += [data]
 
-    return len(dataList)
-def getMetadata(user, repoName, auth, **kwargs):
+    return len(data_list)
+def get_metadata(user, repo_name, auth, **kwargs):
     #this will get the title, description, watchers, stars, subscribers?, forks
-    metadataUrl = ("https://api.github.com/repos/%s/%s" % (user, repoName))
+    metadata_url = ("https://api.github.com/repos/%s/%s" % (user, repo_name))
     if 'checkstat' in kwargs:
-        etagToCheck = kwargs['checkstat']
-        if etagToCheck == requests.get(metadataUrl, auth = auth).headers['etag'].strip('\"'):
+        etag_to_check = kwargs['checkstat']
+        if etag_to_check == requests.get(metadata_url, auth = auth).headers['etag'].strip('\"'):
             print('ETag is the same no updating necessary')
             sys.exit()
         else: #etag is not the same so update
-            metadataRequest = requests.get(metadataUrl, auth = auth)
-            metadataJson = metadataRequest.json()
-            title = metadataJson["name"]
-            description = metadataJson["description"]
-            stars = metadataJson["stargazers_count"]
-            forks = metadataJson["forks_count"]
-            metaEtag = metadataRequest.headers['etag'].strip('\"')
+            metadata_request = requests.get(metadata_url, auth = auth)
+            metadata_json = metadata_request.json()
+            title = metadata_json["name"]
+            description = metadata_json["description"]
+            print(description)
+            stars = metadata_json["stargazers_count"]
+            forks = metadata_json["forks_count"]
+            meta_etag = metadata_request.headers['etag'].strip('\"')
             metadata = {}
 
             metadata["Title"] = title
             metadata["Repo Description"] = description
             metadata["Stars"] = stars
             metadata["Number of forks"] = forks
-            return metadata, metaEtag
+            return metadata, meta_etag
     else: #no etag to pass since it doesn't exist
-        metadataRequest = requests.get(metadataUrl, auth = auth)
-        metadataJson = metadataRequest.json()
-        title = metadataJson["name"]
-        description = metadataJson["description"]
-        stars = metadataJson["stargazers_count"]
-        forks = metadataJson["forks_count"]
-        metaEtag = metadataRequest.headers['etag'].strip('\"')
+        metadata_request = requests.get(metadata_url, auth = auth)
+        metadata_json = metadata_request.json()
+        title = metadata_json["name"]
+        description = metadata_json["description"]
+        stars = metadata_json["stargazers_count"]
+        forks = metadata_json["forks_count"]
+        meta_etag = metadata_request.headers['etag'].strip('\"')
         metadata = {}
 
         metadata["Title"] = title
         metadata["Repo Description"] = description
         metadata["Stars"] = stars
         metadata["Number of forks"] = forks
-        return metadata, metaEtag
-def getLastCommit(user, repo, auth):
+        return metadata, meta_etag
+def get_last_commit(user, repo, auth):
     url = 'https://api.github.com/repos/%s/%s/git/refs/heads/master' % (user, repo)
     master = requests.get(url, auth = auth)
-    commitObjUrl = master.json()['object']['url']
-    lastComm = requests.get(commitObjUrl, auth = auth)
-    lastcommit =  lastComm.json()
-    lastCommitDict = {}
-    lastCommitDict['Author'] = lastcommit['author']['name']
-    lastCommitDict['Message'] = lastcommit['message']
-    return lastCommitDict
-def parseDict(repoUrl,metadataDict, contributorsNum, commitsNum, lastCommitDict, watchersnum, etag):
-    repoDict = {}
-    repoDict['ETag'] = etag
-    metaDict = {}
-    metadataDict['Contributors'] = contributorsNum
-    metadataDict['Commits'] = commitsNum
-    metadataDict['Watchers'] = watchersnum
-    repoDict['Data'] = metadataDict
-    repoDict['Last Commit'] = lastCommitDict
-    metaDict[repoUrl] = repoDict
-    return metaDict
+    commit_object_url = master.json()['object']['url']
+    last_commit = requests.get(commit_object_url, auth = auth).json()
+    last_commit_dict = {}
+    last_commit_dict['Author'] = last_commit['author']['name']
+    last_commit_dict['Message'] = last_commit['message']
+    return last_commit_dict
+def parse_dict(repo_url,metadata_dict, contributors, commits, last_commit_dict, watchers, etag):
+    repodict = {}
+    repodict['ETag'] = etag
+    metadict = {}
+    metadata_dict['Contributors'] = contributors
+    metadata_dict['Commits'] = commits
+    metadata_dict['Watchers'] = watchers
+    repodict['Data'] = metadata_dict
+    repodict['Last Commit'] = last_commit_dict
+    metadict[repo_url] = repodict
+    return metadict
 
 
-def writeJson(metaDict, **kwargs):
+def write_json(meta_dict, **kwargs):
     if ('path' in kwargs):
         print('path specified')
         path = kwargs['path']
-        jsonFile = open('./'+str(path)+'/meta.json', 'w')
+        json_file = open('./'+str(path)+'/meta.json', 'w')
     else:
         print('no path specified')
-        jsonFile = open('meta.json', 'w')
-    json_data = json.dumps(metaDict)
-    jsonFile.write(json_data)
-    jsonFile.close()
+        json_file = open('meta.json', 'w')
+    json_data = json.dumps(meta_dict)
+    json_file.write(json_data)
+    json_file.close()
     print("Json file created successfully!")
 
-def main2(inputUrl, auth, **kwargs):
-    partsOfUrl = inputUrl.split('/')
-    user = partsOfUrl[3]
-    repoName = partsOfUrl[4].split('.')[0]
+def main2(input_url, auth, **kwargs):
+    parts_of_url = input_url.split('/')
+    user = parts_of_url[3]
+    repo_name = parts_of_url[4].split('.')[0]
     if 'etag' in kwargs:
-        etagToCheck = kwargs['etag']
-        metadataDict, etag = getMetadata(user,repoName,auth, checkstat = etagToCheck)
+        etag_to_check = kwargs['etag']
+        metadata_dict, etag = get_metadata(user,repo_name,auth, checkstat = etag_to_check)
     else:
-        metadataDict, etag = getMetadata(user,repoName,auth )
+        metadata_dict, etag = get_metadata(user,repo_name,auth )
 
-        numWatchers = getData(user, repoName, auth, 'subscribers')
-        numContributors = getData(user, repoName, auth, 'contributors')
+        watchers = get_data(user, repo_name, auth, 'subscribers')
+        contributors = get_data(user, repo_name, auth, 'contributors')
 
-    if metadataDict is None:
+    if metadata_dict is None:
         print('ETag is the same no updating necessary')
         sys.exit()
-    lastCommitDict = getLastCommit(user, repoName, auth)
-    numCommits = getData(user, repoName, auth, 'commits')
-    repoDict = parseDict(inputUrl, metadataDict, numContributors, numCommits, lastCommitDict, numWatchers, etag)
+    last_commit_dict = get_last_commit(user, repo_name, auth)
+    commits = get_data(user, repo_name, auth, 'commits')
+    repo_dict = parse_dict(input_url, metadata_dict, contributors, commits, last_commit_dict, watchers, etag)
     if 'path' in kwargs:
-        writeJson(repoDict, path = kwargs['path'])
+        write_json(repo_dict, path = kwargs['path'])
     else:
-        writeJson(repoDict)
+        write_json(repo_dict)
 def main():
-    #userNamePrompt = str(input("Enter in your github username: "))
-    #chooseMethod = int(input("Enter in 1 for authentication through OAuth, 2 for Username + Password: "))
-    chooseMethod = 1
-    userNamePrompt = open('../config-location/config.txt', 'r').readline().strip('\n')#location of my
+    parser = ArgumentParser()
+    parser.add_argument('url', help = 'the url to the git repo containing a urls.md')
+    parser.add_argument('type', help = 'type OAuth to use OAuth authentication (ensure you have an OAuth.txt file in your config folder first)', required = False)
+    args = parser.parse_args()
+
+    username = open('../config-location/config.txt', 'r').readline().strip('\n')#location of my
     if args.type == 'OAuth':
-        promptForPassword = open('../config-location/oauth.txt', 'r').readline()#location of oauth file
+        password = open('../config-location/oauth.txt', 'r').readline()#location of oauth file
     else:
-        yourPassWordFile = open('../config-location/config.txt', 'r')
-        yourPassWordFile.readline()
-        promptForPassword = yourPassWordFile.readline().strip('\n')
-    auth = (userNamePrompt, promptForPassword)
-    inputUrl = args.url
-    main2(inputUrl, auth)
+        password_file = open('../config-location/config.txt', 'r')
+        password_file.readline()
+        password = password_file.readline().strip('\n')
+    auth = (username, password)
+    input_url = args.url
+    main2(input_url, auth)
 
 
 if __name__ == "__main__":

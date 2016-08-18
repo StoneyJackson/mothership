@@ -4,36 +4,30 @@ import json
 import os
 from argparse import ArgumentParser
 
-parser = ArgumentParser()
-parser.add_argument('url', help = 'the url to the git repo containing a urls.md')
-parser.add_argument('type', help = 'type OAuth to use OAuth authentication (ensure you have an OAuth.txt file in your config folder first)', nargs='?', const='Standard')
-args = parser.parse_args()
 
 
+def get_urls(url, user, repo_name, auth, urls_json):
+    url_list = []
+    repo_list = []
 
-def getUrls(requestUrl, user, repoName, auth, urlsJson):
-    urlList = []
-    repoList = []
+    github_request = requests.get(url, auth = auth)
 
-    request = requests.get(requestUrl, auth = auth)
-
-    if request.status_code == 200: #successful request because file exists
-        r2 = requests.get("https://raw.github.com/%s/%s/master/urls.md" % (user, repoName))
-        if r2.status_code == 200:
+    if github_request.status_code == 200: #successful request because repo exists
+        urls_request = requests.get("https://raw.github.com/%s/%s/master/urls.md" % (user, repo_name))
+        if urls_request.status_code == 200:
             if os.stat('urls.json').st_size > 0:
-                if urlsJson['ETag'] != None: #no etag? if possible need to check
-                    if urlsJson['ETag'] != r2.headers['ETag'].strip('\"'):
-                        etag = (r2.headers['ETag'].strip('\"'))
-                        print(type(etag))
-                        urls = str(r2.content).strip('-').split(' ')
+                if urls_json['ETag'] != None: #no etag? if possible need to check
+                    if urls_json['ETag'] != urls_request.headers['ETag'].strip('\"'):
+                        etag = (urls_request.headers['ETag'].strip('\"'))
+                        urls = str(urls_request.content).strip('-').split(' ')
                         urls = urls[1:]  #skip the first line its irrelevant and something github includes
                         for url in urls:
                             url = url.strip('\n')
                             url = url.rstrip().rstrip()
 
-                            urlList += [url]
-                            urlSplit = url.split('/')
-                            item = urlSplit[4].split('.')
+                            url_list += [url]
+                            url_split = url.split('/')
+                            item = url_split[4].split('.')
                             repo = item[0]
                             repoList += [repo]
 
@@ -41,72 +35,75 @@ def getUrls(requestUrl, user, repoName, auth, urlsJson):
                         print('Request has the same ETag exiting since no changes have been made.')
                         sys.exit()
             else:
-                etag = (r2.headers['ETag'].strip('\"'))
-                urls = (r2.content.decode('utf-8').split('\n'))
+                etag = (urls_request.headers['ETag'].strip('\"'))
+                urls = (urls_request.content.decode('utf-8').split('\n'))
 
-                urlscopy = urls[:len(urls)-1]  #skip the last line its
+                urls_copy = urls[:len(urls)-1]  #skip the last line its
                 #print(urlscopy[])
-                for url in urlscopy:
+                for url in urls_copy:
                     url = url.strip('-')
 
-                    urlList += [url]
-                    urlSplit = url.split('/')
-                    item = urlSplit[4].split('.')
+                    url_list += [url]
+                    url_split = url.split('/')
+                    item = url_split[4].split('.')
                     repo = item[0]
-                    repoList += [repo]
-                else: #urls.md does not exist so create it?
-                    createMD = open('urls.md', 'w')
-                    createMD.close()
+                    repo_list += [repo]
+
     else:
+        print(github_request.status_code)
         print("invalid url entered")
         sys.exit()
 
-    return urlList, repoList, etag
-def parseDict(urlList, repoList, etag):
-    urlsDict = {}
-    urlsDict['ETag'] =  etag
+    return url_list, repo_list, etag
+def parse_dict(url_list, repo_list, etag):
+    urls_dict = {}
+    urls_dict['ETag'] =  etag
 
-    urlsDict['URLs'] = urlList
+    urls_dict['URLs'] = url_list
     #for repo in repoList:
-        #repoDict[repo] = urlList[repoList.index(repo)]
-    return urlsDict
-def writeJson(repoDict, json_fileName):
-    jsonFile = open('urls.json','w')
-    json_data = json.dumps(repoDict)
-    jsonFile.write(json_data)
-    jsonFile.close()
+        #repo_dict[repo] = url_list[repoList.index(repo)]
+    return urls_dict
+def write_json(repo_dict):
+    json_file = open('urls.json','w')
+    json_data = json.dumps(repo_dict)
+    json_file.write(json_data)
+    json_file.close()
     print("Json file created successfully!")
 
 def main():
+    parser = ArgumentParser()
+    parser.add_argument('url', help = 'the url to the git repo containing a urls.md')
+    parser.add_argument('type', help = 'type OAuth to use OAuth authentication (ensure you have an OAuth.txt file in your config folder first)', nargs='?', const='Standard')
+    args = parser.parse_args()
+
+
     try:
-        openJson = open('urls.json', 'r')
+        open_json = open('urls.json', 'r')
         if os.stat('urls.json').st_size > 0:
-            urlJson = json.load(openJson)
+            url_json = json.load(open_json)
+        open_json.close()
     except FileNotFoundError:
-        urlJson = open('urls.json', 'w')
-    userNamePrompt = open('../config-location/config.txt', 'r').readline().strip('\n')#location of my
+        url_json = open('urls.json', 'w')
+    username = open('../config-location/config.txt', 'r').readline().strip('\n')#location of my
 
     if args.type == 'OAuth':
-        yourPassWord = open('../config-location/oauth.txt', 'r').readline()#location of oauth file
+        password = open('../config-location/oauth.txt', 'r').readline()#location of oauth file
     else:
-        yourPassWordFile = open('../config-location/config.txt', 'r')
-        yourPassWordFile.readline()
-        yourPassWord = yourPassWordFile.readline().strip('\n')
+        password_file = open('../config-location/config.txt', 'r')
+        password_file.readline()
+        password = password_file.readline().strip('\n')
     #I wanted to the input url to be a ".git" url but I couldn't find any reference to that within the repos, interestingly
     #enough its in the json returned from the GET request
-    inputUrl = args.url
-    auth = (userNamePrompt, yourPassWord)
-    partsOfUrl = inputUrl.split('/')
-    user = partsOfUrl[3]
-    repoName = partsOfUrl[4]
+    input_url = args.url
+    auth = (username, password)
+    parts_of_url = input_url.split('/')
+    user = parts_of_url[3]
+    repo_name = parts_of_url[4]
     #URLS.md should in exist in the root
-    requestUrl = ("https://api.github.com/repos/%s/%s/contents/urls.md/" % (user, repoName))
-    urlList, repoList, etag = getUrls(requestUrl, user, repoName, auth, urlJson)
-    urlsDict = parseDict(urlList, repoList, etag)
-    writeJson(urlsDict, 'urls')
+    request_url = ("https://api.github.com/repos/%s/%s/contents/urls.md/" % (user, repo_name))
+    url_list, repo_list, etag = get_urls(request_url, user, repo_name, auth, url_json)
+    urls_dict = parse_dict(url_list, repo_list, etag)
+    write_json(urls_dict)
+
 
 main()
-
-#json = request.json()
-#for key in json:
-    #print(key,":",json[key])
