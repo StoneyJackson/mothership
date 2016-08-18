@@ -13,23 +13,25 @@ In addition you'll also need the requests module found [here] (http://docs.pytho
 and the makeHTML module which can be found [here](http://www.hoboes.com/Mimsy/hacks/object-oriented-html/)
 
 ##Setup
-1. To use the harvester you must have a github account to authenticate
-2. Harvester supports authentication by OAuth or a standard username and password
-3. With that in mind, you should have a folder named config-location located on the root of the repo.
-4. Your config-location should have a config.py that contains your authentication information
-as well as an OAuth text file that holds your OAuth token.
-config.py
+
+### 1. Create and edit config file
+
+Place config file in PROJECT_ROOT/config-location/config.py . Paste the following into that file and edit to your liking.
+
 ```
 DATA_ROOT = 'path/to/where/we/should/store/data'
 GITHUB_ROOT = 'https://api.github.com'
 GITHUB_USERNAME = 'Your Username'
 GITHUB_PASSWORD = 'Your Password'
-
 ```
+
+### 2. (Optional) OAuth
+
+If you are going to use OAuth, put your OAuth key in a plain text file. This documenation assumes you put it in a file named oauth.txt and it is in the root of this program.
+
 
 ##Usage
 1. run urls_check.py
-
 
 it requires a url to be passed, repo must contain urls.md
 also takes an optional 'OAuth' argument to choose to use an OAuth file to authenticate
