@@ -39,3 +39,4 @@ Date,Start,Stop,What,Next,Blockers
 11-August, 9:00, 12:00, cleaned up formatting and setup argument parsing from terminal, working on refactoring next, no blockers
 18-August, 10:00, 1:00, fixed styling had a bug with cmd line args, working on css and readme next, no blockers 
 18-August, 1:00, 1:45, 11th and official final meeting for harvester project, finishing touches next, no blockers
+21-August, 10:00, 3:00, added base css to the html fixed more styling added example to readme, , 
