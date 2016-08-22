@@ -33,7 +33,7 @@ If you are going to use OAuth, put your OAuth key in a plain text file. This doc
 ##Usage
 1. run urls_check.py
 
-it requires a url to be passed, repo must contain urls.md
+it requires a url to be passed, repo must contain urls.md *
 also takes an optional 'OAuth' argument to choose to use an OAuth file to authenticate
 (note if you've set up MFA on your github, I recommend setting up OAuth) 
 I ran this with https://github.com/foss2serve/corral
@@ -58,7 +58,7 @@ location/to/repo> python urls_check.py https://github.com/foss2serve/corral OAut
 location/to/repo> python harvester.py OAuth
 location/to/repo> python generateHTML.py
 ```
-
+*Note: If the repository entered doesn't contain a URLS.md on the root, it will return an HTTP 404 error.
 **Note: If you don't add OAuth, you will get an HTTP 401 error, and the program will exit.
 
 
