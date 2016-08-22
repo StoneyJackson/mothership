@@ -63,3 +63,8 @@ location/to/repo> python generateHTML.py
 
 
 4. (Optional) You can edit the css for the html pages by navigating into harvester/css/ref.css
+
+## Copyright and License
+
+* Copyright 2016, Stoney Jackson SOME RIGHTS RESERVED
+* License: GPLv3
