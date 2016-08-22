@@ -4,10 +4,8 @@ import sys
 from argparse import ArgumentParser
 
 
-
-#need to use a different URL
 def get_num_pages(url, auth):
-
+    '''find out the maximum number of pages needed to traverse for a given repo'''
     request = requests.get(url, auth = auth)
 
     try:
@@ -19,6 +17,7 @@ def get_num_pages(url, auth):
 
 #need to use a different URL
 def get_data(user, repo_name, auth, data_type):
+    '''get different types of data depending on which data type is requested i.e. contributors,stars, etc'''
     repo_url = ("https://api.github.com/repos/"+user+"/"+repo_name+"/"+data_type)
     num_pages = get_num_pages(repo_url, auth)
     data_list = []
@@ -46,7 +45,7 @@ def get_data(user, repo_name, auth, data_type):
 
     return len(data_list)
 def get_metadata(user, repo_name, auth, **kwargs):
-    #this will get the title, description, watchers, stars, subscribers?, forks
+    '''get the metadata for a given repo'''
     metadata_url = ("https://api.github.com/repos/%s/%s" % (user, repo_name))
     if 'checkstat' in kwargs:
         etag_to_check = kwargs['checkstat']
@@ -85,6 +84,7 @@ def get_metadata(user, repo_name, auth, **kwargs):
         metadata["Number of forks"] = forks
         return metadata, meta_etag
 def get_last_commit(user, repo, auth):
+    '''get the last commit made to the repo'''
     url = 'https://api.github.com/repos/%s/%s/git/refs/heads/master' % (user, repo)
     master = requests.get(url, auth = auth)
     commit_object_url = master.json()['object']['url']
@@ -94,6 +94,7 @@ def get_last_commit(user, repo, auth):
     last_commit_dict['Message'] = last_commit['message']
     return last_commit_dict
 def parse_dict(repo_url,metadata_dict, contributors, commits, last_commit_dict, watchers, etag):
+    '''parse all the metadata into dictionaries that will be written to a json'''
     repodict = {}
     repodict['ETag'] = etag
     metadict = {}
@@ -107,6 +108,7 @@ def parse_dict(repo_url,metadata_dict, contributors, commits, last_commit_dict, 
 
 
 def write_json(meta_dict, **kwargs):
+    '''write metadata to json'''
     if ('path' in kwargs):
         print('path specified')
         path = kwargs['path']
@@ -120,6 +122,7 @@ def write_json(meta_dict, **kwargs):
     print("Json file created successfully!")
 
 def main2(input_url, auth, **kwargs):
+    '''for the purpose of importing into harvester the main2 is the actual "main"'''
     parts_of_url = input_url.split('/')
     user = parts_of_url[3]
     repo_name = parts_of_url[4].split('.')[0]
@@ -143,6 +146,7 @@ def main2(input_url, auth, **kwargs):
     else:
         write_json(repo_dict)
 def main():
+    '''main for running the program standalone'''
     parser = ArgumentParser()
     parser.add_argument('url', help = 'the url to the git repo containing a urls.md')
     parser.add_argument('type', help = 'type OAuth to use OAuth authentication (ensure you have an OAuth.txt file in your config folder first)', required = False)
@@ -158,7 +162,6 @@ def main():
     auth = (username, password)
     input_url = args.url
     main2(input_url, auth)
-
 
 if __name__ == "__main__":
     main()

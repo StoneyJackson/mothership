@@ -5,13 +5,13 @@ import os
 from argparse import ArgumentParser
 
 
-
 def get_urls(url, user, repo_name, auth, urls_json):
+    '''visits any specified github repository with a urls.md file
+    and gathers the urls and repositories into a list and grabs the etag'''
     url_list = []
     repo_list = []
 
     github_request = requests.get(url, auth = auth)
-
     if github_request.status_code == 200: #successful request because repo exists
         urls_request = requests.get("https://raw.github.com/%s/%s/master/urls.md" % (user, repo_name))
         if urls_request.status_code == 200:
@@ -50,22 +50,23 @@ def get_urls(url, user, repo_name, auth, urls_json):
                     repo_list += [repo]
 
     else:
-        print(github_request.status_code)
+        print('HTTP ',github_request.status_code)
         print("invalid url entered")
         sys.exit()
 
     return url_list, repo_list, etag
 def parse_dict(url_list, repo_list, etag):
+    '''add the list of urls and list of corresponding etag for the urls
+    to the urls_dict which is written to a urls.json '''
     urls_dict = {}
     urls_dict['ETag'] =  etag
-
     urls_dict['URLs'] = url_list
-    #for repo in repoList:
-        #repo_dict[repo] = url_list[repoList.index(repo)]
+
     return urls_dict
-def write_json(repo_dict):
+def write_json(urls_dict):
+    '''writes the urls_dict into a json'''
     json_file = open('urls.json','w')
-    json_data = json.dumps(repo_dict)
+    json_data = json.dumps(urls_dict)
     json_file.write(json_data)
     json_file.close()
     print("Json file created successfully!")
@@ -92,14 +93,12 @@ def main():
         password_file = open('../config-location/config.txt', 'r')
         password_file.readline()
         password = password_file.readline().strip('\n')
-    #I wanted to the input url to be a ".git" url but I couldn't find any reference to that within the repos, interestingly
-    #enough its in the json returned from the GET request
     input_url = args.url
     auth = (username, password)
     parts_of_url = input_url.split('/')
     user = parts_of_url[3]
     repo_name = parts_of_url[4]
-    #URLS.md should in exist in the root
+
     request_url = ("https://api.github.com/repos/%s/%s/contents/urls.md/" % (user, repo_name))
     url_list, repo_list, etag = get_urls(request_url, user, repo_name, auth, url_json)
     urls_dict = parse_dict(url_list, repo_list, etag)
