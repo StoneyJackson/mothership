@@ -45,6 +45,21 @@ and OAuth or standard authentication are avialable options
 it will generate a folder for each url in urls.md and each folder will contain a meta.json
 
 3. run generateHTML.py - for now it will generate very basic html no css(To be added later)
+#Example
+If you didn't have MFA set up, you would run it like so.
+```
+location/to/repo> python urls_check.py https://github.com/foss2serve/corral
+location/to/repo> python harvester.py
+location/to/repo> python generateHTML.py
+```
+If you did have MFA set up like I do, you'll need to use OAuth like so.
+```
+location/to/repo> python urls_check.py https://github.com/foss2serve/corral OAuth **
+location/to/repo> python harvester.py OAuth
+location/to/repo> python generateHTML.py
+```
+
+**Note: If you don't add OAuth, you will get an HTTP 401 error, and the program will exit.
 
 
-
+4. (Optional) You can edit the css for the html pages by navigating into harvester/css/ref.css
