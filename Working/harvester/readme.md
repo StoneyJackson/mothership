@@ -1,18 +1,18 @@
-#Harvester use Documentation
+# Harvester use Documentation
 
 
 by Tony Tran
 
-##About Harvester
+## About Harvester
 Harvester is a proof of concept project that visits Github repositories, grabs the metadata and generates a webpage for each repo.
-##Dependencies
+## Dependencies
 To use the harvester you need: Python 3.x,
 and A github account
 
 In addition you'll also need the requests module found [here] (http://docs.python-requests.org/en/master/)
 and the makeHTML module which can be found [here](http://www.hoboes.com/Mimsy/hacks/object-oriented-html/)
 
-##Setup
+## Setup
 
 ### 1. Create and edit config file
 
@@ -30,7 +30,7 @@ GITHUB_PASSWORD = 'Your Password'
 If you are going to use OAuth, put your OAuth key in a plain text file. This documenation assumes you put it in a file named oauth.txt and it is in the root of this program.
 
 
-##Usage
+## Usage
 1. run urls_check.py
 
 it requires a url to be passed, repo must contain urls.md *
@@ -45,7 +45,7 @@ and OAuth or standard authentication are avialable options
 it will generate a folder for each url in urls.md and each folder will contain a meta.json
 
 3. run generateHTML.py - for now it will generate very basic html no css(To be added later)
-#Example
+# Example
 If you didn't have MFA set up, you would run it like so.
 ```
 location/to/repo> python urls_check.py https://github.com/foss2serve/corral
@@ -58,7 +58,7 @@ location/to/repo> python urls_check.py https://github.com/foss2serve/corral OAut
 location/to/repo> python harvester.py OAuth
 location/to/repo> python generateHTML.py
 ```
-*Note: If the repository entered doesn't contain a URLS.md on the root, it will return an HTTP 404 error.
+**Note: If the repository entered doesn't contain a URLS.md on the root, it will return an HTTP 404 error.
 **Note: If you don't add OAuth, you will get an HTTP 401 error, and the program will exit.
 
 
